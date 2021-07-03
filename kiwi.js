@@ -1,6 +1,12 @@
 var slider = document.getElementById('myRange')
 
 
+
+
+
+
+
+
 function toggle(button)
 {
   if(document.getElementById("1").value=="OFF"  ){
@@ -103,3 +109,45 @@ else if(document.getElementById("1").value=="ON" ){
 }
 
 
+
+
+
+function istek() {
+    var x = document.getElementById("telephone").value;
+  document.getElementById("bilmirem").innerHTML = x + '' + ' / month';
+  var qiymet = x * 16
+  document.getElementById('ayliq').innerHTML = '<b>$' + qiymet
+  if ( x < 1 ) {
+    document.getElementById("bilmirem").innerHTML ='1' + '/ month';
+    document.getElementById('ayliq').innerHTML = '<b>' + '$16'
+  }
+  else if (x == 12) {
+    document.getElementById("bilmirem").innerHTML ='1' + '/ year';
+    document.getElementById('ayliq').innerHTML = '<b>' + '$120';
+    document.getElementById("1").value="OFF";
+    document.querySelector('.switch').classList.add('dum')
+  }
+  else if (x == 24) {
+    document.getElementById("bilmirem").innerHTML ='2' + '/ year';
+    document.getElementById('ayliq').innerHTML = '<b>' + '$240';
+    document.getElementById("1").value="OFF";
+    document.querySelector('.switch').classList.add('dum')
+  }
+  else if (x == 36) {
+    document.getElementById("bilmirem").innerHTML ='3' + '/ year';
+    document.getElementById('ayliq').innerHTML = '<b>' + '$360';
+    document.getElementById("1").value="OFF";
+    document.querySelector('.switch').classList.add('dum')
+  }
+  else if ( isNaN(x)) {
+    document.getElementById("bilmirem").innerHTML ='1' + '/ month';
+    document.getElementById('ayliq').innerHTML = '<b>' + '$16'
+    document.getElementById("telephone").value = '1'
+  }
+  else {
+    document.getElementById("1").value="ON";
+    document.querySelector('.switch').classList.remove('dum')
+  }
+
+ 
+}
